@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Preferred Setup</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div>
+          <h1>Preferred Setup</h1>
+          <p id="summary">Reading your windows…</p>
+        </div>
+      </header>
+
+      <p id="error" class="error" hidden></p>
+
+      <div class="actions">
+        <button id="save" type="button" class="primary">Save this arrangement</button>
+        <button id="restore" type="button" class="ghost" disabled>Restore now</button>
+      </div>
+      <p class="hint">Restore closes the windows open now and reopens the saved ones, each with its own tabs.</p>
+
+      <label class="row">
+        <span>Restore when Chrome starts</span>
+        <input id="auto" type="checkbox" role="switch" checked />
+      </label>
+      <label class="row">
+        <span>Show “Deploying your preferred setup”</span>
+        <input id="overlay" type="checkbox" role="switch" checked />
+      </label>
+
+      <label class="row advanced-toggle">
+        <span>Advanced</span>
+        <input id="advanced" type="checkbox" role="switch" />
+      </label>
+
+      <section id="advanced-panel" hidden>
+        <label class="row">
+          <span>Keep tab groups <small>names and colors</small></span>
+          <input id="groups" type="checkbox" role="switch" checked />
+        </label>
+        <label class="row">
+          <span>Keep zoom levels</span>
+          <input id="zoom" type="checkbox" role="switch" checked />
+        </label>
+
+        <h2>Layouts</h2>
+        <p class="hint">One layout restores on startup. The others are here when you want them.</p>
+        <ul id="layouts"></ul>
+        <form id="new-layout" class="new-layout">
+          <input id="new-name" type="text" maxlength="60" placeholder="Name a new layout" />
+          <button type="submit" class="ghost">Save as new</button>
+        </form>
+
+        <div class="file-row">
+          <button id="export" type="button" class="ghost">Export JSON</button>
+          <label class="ghost file">
+            Import JSON
+            <input id="import" type="file" accept="application/json,.json" />
+          </label>
+        </div>
+      </section>
+
+      <p id="monitors" class="hint monitors"></p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

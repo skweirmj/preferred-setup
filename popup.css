@@ -1,0 +1,230 @@
+:root {
+  color-scheme: dark;
+  --bg: #101214;
+  --surface: #1b2024;
+  --line: #31383e;
+  --fg: #f4f0e6;
+  --muted: #a39e93;
+  --accent: #d6f25c;
+  --accent-ink: #16180c;
+  --danger: #ffb4a8;
+  font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body { width: 380px; }
+
+main {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin: 8px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+#summary, .hint {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.mark {
+  width: 36px;
+  height: 28px;
+  display: grid;
+  grid-template-columns: 8px 1fr 1fr 8px;
+  gap: 2px;
+  flex: none;
+}
+
+.mark span {
+  border: 1.5px solid var(--fg);
+  border-radius: 2px;
+}
+
+.mark span:nth-child(2),
+.mark span:nth-child(3) {
+  align-self: center;
+  height: 16px;
+}
+
+.actions, .file-row, .new-layout {
+  display: flex;
+  gap: 8px;
+}
+
+.actions { margin-top: 4px; }
+
+button, .file {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.45; cursor: default; }
+
+.primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+  flex: 1;
+}
+
+.ghost { background: transparent; }
+
+.file { display: inline-flex; align-items: center; }
+.file input { display: none; }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.row small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.advanced-toggle { border-top-width: 1px; }
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 40px;
+  height: 24px;
+  border-radius: 999px;
+  background: #2a3036;
+  border: 1px solid var(--line);
+  position: relative;
+  flex: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--fg);
+  transition: transform 160ms ease;
+}
+
+input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+input[type="checkbox"]:checked::after {
+  transform: translateX(16px);
+  background: var(--accent-ink);
+}
+
+#layouts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.layout strong { font-size: 13px; font-weight: 600; }
+.layout em { display: block; font-style: normal; color: var(--muted); font-size: 11px; }
+
+.layout button {
+  padding: 6px 8px;
+  font-size: 11px;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 13px;
+}
+
+.error {
+  margin: 0;
+  color: var(--danger);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.monitors { margin-top: 2px; }
+
+@media (min-width: 520px) {
+  body {
+    width: auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 48px 16px 64px;
+  }
+  main {
+    width: 440px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: #161a1d;
+  }
+}
