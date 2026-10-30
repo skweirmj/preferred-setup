@@ -50,3 +50,5 @@ If a monitor is unplugged, windows that lived on it open in the center of anothe
 - **Storage** — so the layout stays on that computer
 
 There is no account and no network request. The privacy page for the store listing lives with the product site.
+
+Chrome profiles are separate. A setup saved in one profile is not used by the others on the “Who’s using Chrome?” screen. Install the extension once in each profile that should restore its own windows.
